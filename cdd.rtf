@@ -1,4 +1,5 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1036{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.15063}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\qc\ul\b\f0\fs36\lang12 Fructuseur\par
 Cahier des charges\par
@@ -32489,6 +32490,13 @@ La troisi\'e8me commande d'ajout est la commande \b cdn \i type_du_cdn\i0  \i li
 Cette commande ajoutera dans le head de start.inc.php un balise link ou script, selon le type, avec comme href ou src le lien du cdn.\par
 Le fichier base.php contiendra toutes les fonctions du cms.\par
 Et pour finir le dernier fichier loader.php ajoutera tous les fichiers css et js des dossiers racines adapt\'e9s au head de start.inc.php car il sera execut\'e9 \'e0 l'int\'e9rieur de celui-ci.\par
+\ul Nouvelle version 0.1.1:\ulnone\par
+Dans cette nouvelle version, j'ajouterai 3 nouvelles commandes d'ajout.\par
+La premi\'e8re commande sera la commande \b cdnvar\b0  \b\i nom value\b0\i0 .\par
+Cette commande permet d'enregistrer une variable dans le registre de l'ordinateur qui contiendra les variables cdn.\par
+Par exemple pour la commande \i cdnvar jquery {{\field{\*\fldinst{HYPERLINK http://liencdnjquery/jquery.min.js }}{\fldrslt{http://liencdnjquery/jquery.min.js\ul0\cf0}}}}\f0\fs22  \i0 permettra d'enregistrer la variable \i jquery\i0  qui pourra \'eatre utilis\'e9 ainsi pour tous les projets fructuseur avec la commande \i cdn js jquery \i0 sur le m\'eame support physique.\par
+La deuxi\'e8me commande est la commande \b css \i style\i0  \b0 qui permettre dans cet exemple de cr\'e9er le fichier style.css dans le dossier racine css sans besoin de cr\'e9er le fichier manuellement.\par
+La troisi\'e8me commande est similaire \'e0 la pr\'e9c\'e9dente mais pour javascript donc \b js \i main\b0\i0 .\par
 \par
 \par
 
