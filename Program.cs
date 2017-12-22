@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -39,7 +40,10 @@ namespace Fructuseur
             // Commandes d'ajout
             "font",
             "responsive",
-            "cdn"
+            "cdn",
+            "cdnvar",
+            "css",
+            "js"
         };
 
         // Tester l'existence de la commande
@@ -110,6 +114,34 @@ namespace Fructuseur
             else return false;
         }
 
+        // Ajouter une valeur au registre
+        public static void ajouterKey(string name, string value)
+        {
+            if (Registry.CurrentUser.OpenSubKey("fructuseur", false) == null)
+                Registry.CurrentUser.CreateSubKey("fructuseur", true);
+            RegistryKey key = Registry.CurrentUser.OpenSubKey("fructuseur", true);
+            Console.WriteLine("Valeur de registre modifiée.");
+            key.SetValue(name, value);
+            key.Close();
+        }
+
+        // Prendre une valeur au registre
+        public static string prendreKey(string name)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey("fructuseur");
+            var value = key.GetValue(name);
+            if (value != null)
+            {
+                Console.WriteLine("Valeur de registre récupérée");
+                return value.ToString();
+            }
+            else
+            {
+                Console.WriteLine("Valeur de registre inexistante");
+                return "error";
+            }
+        }
+
         // Ajouter une ligne à un fichier
         public static bool ajouterCode(string path, string code)
         {
@@ -144,6 +176,12 @@ namespace Fructuseur
             }
             else return false;
         }
+
+        // Parser la commande
+        public static void parseCmd()
+        {
+            Commandes.currentCmd = Commandes.currentCmd.Replace(' ', '_').Replace('\'', '_').ToLower();
+        }
     }
     class Execute
     {
@@ -174,7 +212,7 @@ namespace Fructuseur
         public void page()
         {
             Console.WriteLine("Création de la page");
-            Commandes.currentCmd = Commandes.currentCmd.Replace(' ', '_').Replace('\'', '_').ToLower();
+            Commandes.parseCmd();
             Commandes.ajouterCode(@"bin\php\router.php", "addPage('" + Commandes.currentCmd + "');");
             string fichier = @"web\" + Commandes.currentCmd + ".php";
             Commandes.creerFichier(fichier);
@@ -185,7 +223,7 @@ namespace Fructuseur
         public void default_f()
         {
             Console.WriteLine("Attribution de la page par défaut");
-            Commandes.currentCmd = Commandes.currentCmd.Replace(' ', '_').Replace('\'', '_').ToLower();
+            Commandes.parseCmd();
             Commandes.ajouterCode(@"bin\php\router.php", "setDefault('" + Commandes.currentCmd + "');");
         }
         // Commandes d'ajout
@@ -228,6 +266,15 @@ namespace Fructuseur
             string[] cmds = Commandes.currentCmd.Split(' ');
             if (cmds.Length == 2 && (cmds[0] == "css" || cmds[0] == "js"))
             {
+                if(!cmds[1].Contains("http"))
+                {
+                    cmds[1] = Commandes.prendreKey(cmds[1]);
+                    if (cmds[1] == "error")
+                    {
+                        Console.WriteLine("Impossible d'ajouter le cdn.");
+                        return;
+                    }
+                }
                 Console.WriteLine("Ajout du cdn");
                 if (cmds[0] == "css")
                 {
@@ -239,6 +286,28 @@ namespace Fructuseur
                 }
             }
             else Console.WriteLine("Commande invalide");
+        }
+        public void cdnvar()
+        {
+            string[] cmds = Commandes.currentCmd.Split(' ');
+            if (cmds.Length == 2)
+            {
+                Console.WriteLine("Ajout de la variable cdn");
+                Commandes.ajouterKey(cmds[0], cmds[1]);
+            }
+            else Console.WriteLine("Commande invalide");
+        }
+        public void css()
+        {
+            Commandes.parseCmd();
+            Console.WriteLine("Création du fichier css");
+            if (!Commandes.creerFichier(@"css\" + Commandes.currentCmd + ".css")) Console.WriteLine("Impossible");
+        }
+        public void js()
+        {
+            Commandes.parseCmd();
+            Console.WriteLine("Création du fichier js");
+            if (!Commandes.creerFichier(@"js\" + Commandes.currentCmd + ".js")) Console.WriteLine("Impossible");
         }
     }
 }
