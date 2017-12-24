@@ -32494,9 +32494,18 @@ Et pour finir le dernier fichier loader.php ajoutera tous les fichiers css et js
 Dans cette nouvelle version, j'ajouterai 3 nouvelles commandes d'ajout.\par
 La premi\'e8re commande sera la commande \b cdnvar\b0  \b\i nom value\b0\i0 .\par
 Cette commande permet d'enregistrer une variable dans le registre de l'ordinateur qui contiendra les variables cdn.\par
-Par exemple pour la commande \i cdnvar jquery {{\field{\*\fldinst{HYPERLINK http://liencdnjquery/jquery.min.js }}{\fldrslt{http://liencdnjquery/jquery.min.js\ul0\cf0}}}}\f0\fs22  \i0 permettra d'enregistrer la variable \i jquery\i0  qui pourra \'eatre utilis\'e9 ainsi pour tous les projets fructuseur avec la commande \i cdn js jquery \i0 sur le m\'eame support physique.\par
-La deuxi\'e8me commande est la commande \b css \i style\i0  \b0 qui permettre dans cet exemple de cr\'e9er le fichier style.css dans le dossier racine css sans besoin de cr\'e9er le fichier manuellement.\par
+Par exemple pour la commande \i cdnvar jquery {{\field{\*\fldinst{HYPERLINK http://liencdnjquery/jquery.min.js }}{\fldrslt{http://liencdnjquery/jquery.min.js\ul0\cf0}}}}\f0\fs22  \i0 permettra d'enregistrer la variable \i jquery\i0  qui pourra \'eatre utilis\'e9e ainsi pour tous les projets fructuseur avec la commande \i cdn js jquery \i0 sur le m\'eame support physique.\par
+La deuxi\'e8me commande est la commande \b css \i style\i0  \b0 qui permettra dans cet exemple de cr\'e9er le fichier style.css dans le dossier racine css sans besoin de cr\'e9er le fichier manuellement.\par
 La troisi\'e8me commande est similaire \'e0 la pr\'e9c\'e9dente mais pour javascript donc \b js \i main\b0\i0 .\par
+\ul Nouveau patch 0.1.11:\par
+\ulnone Tout le code a \'e9t\'e9 rang\'e9 et structur\'e9 dans beaucoup de fichiers et optimis\'e9 \'e0 son paroxysme.\par
+Aucun probl\'e8me ne peut d\'e9sormais intervenir si tout a bien \'e9t\'e9 d\'e9velopp\'e9.\par
+\ul Nouvelle version 0.1.2:\par
+\ulnone Arriv\'e9 du pagebuilder. Pour lancer le pagebuilder, il suffit de taper la commande \b build\b0 , puis \b quit \b0 pour le quitter.\par
+Une fois le pagebuilder lanc\'e9, il suffit de s\'e9lectionner la page sur laquelle travailler avec \b open \i page\b0\i0  puis de lancer les commandes de build.\par
+La premi\'e8re commande de build est \b css \i nomfichiercssracine \b0\i0 pour selectionner le fichier css qui subira les modifications.\par
+Ensuite, pour cr\'e9er directement un emplacement de modification css pour un element dans le fichier css selectionn\'e9, il suffit de taper \b .navbar \b0 par exemple, ou encore \b body > main \b0 (cela d\'e9pend des besoins du d\'e9veloppeur).\par
+Pour quitter le cssbuilder, il suffit de taper \b quit\b0 .\par
 \par
 \par
 
