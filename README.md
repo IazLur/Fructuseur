@@ -50,3 +50,18 @@ Les commandes d'ajout sont secondaires. Elles ne sont pas indispensable au bon f
  2. **```css {style}```**: Permet de créer un fichier css rapidement dans le dossier racine css.
  
  3. **```js {main}```**: Permet de créer un fichier js rapidement dans le dossier racine js.
+ 
+#### v0.1.2
+
+ 1. **```build```**: Permet d'ouvrir le pagebuilder.
+ 
+### Les commandes du pagebuilder
+Le page builder permet de faciliter la tâche de l'intégrateur. Grâce à ces commandes, Fructubuild vous permettra d'optimiser votre temps de développement. Les préréquis des commandes sont cités dans [].
+
+#### v0.1.2
+
+ 1. **```css {monfichier}```**: [un fichier monfichier.css dans le dossier racine css] Permet d'ouvrir le cssbuilder sur le fichier css indiqué.
+ 
+ 2. **```{body .navbar a}```**: [cssbuilder d'ouvert] Permet de générer proprement body .navbar a { } dans le fichier css ouvert du cssbuilder.
+
+
