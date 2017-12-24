@@ -63,5 +63,7 @@ Le page builder permet de faciliter la tâche de l'intégrateur. Grâce à ces c
  1. **```css {monfichier}```**: [un fichier monfichier.css dans le dossier racine css] Permet d'ouvrir le cssbuilder sur le fichier css indiqué.
  
  2. **```{body .navbar a}```**: [cssbuilder d'ouvert] Permet de générer proprement body .navbar a { } dans le fichier css ouvert du cssbuilder.
+ 
+ 3. **```quit```**: Permet de quitter le cssbuilder et le pagebuilder.
 
 
