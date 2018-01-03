@@ -52,6 +52,10 @@ Les commandes d'ajout sont secondaires. Elles ne sont pas indispensable au bon f
 
  * **```build```**: Permet d'ouvrir le pagebuilder.
  
+#### v0.1.3
+
+ * **```hbuild```**: Permet d'ouvrir l'hyperbuilder.
+ 
 ### Les commandes du pagebuilder
 Le page builder permet de faciliter la tâche de l'intégrateur. Grâce à ces commandes, Fructubuild vous permettra d'optimiser votre temps de développement. Les préréquis des commandes sont cités dans [].
 
@@ -63,4 +67,10 @@ Le page builder permet de faciliter la tâche de l'intégrateur. Grâce à ces c
  
  * **```quit```**: Permet de quitter le cssbuilder et le pagebuilder.
 
+### L'hyperbuilder
+L'hyperbuilder est un outil puissant de Fructuseur permettant de créer une base d'architecture html et css avec des phrases écrites en français. Il vous faudra avoir une page de créée ainsi que suivre les formules suivantes. **&** signifie que tout ce qui est écrit après peut être répété à l'infini. **+** signifie que tout ce qui est écrit après n'est pas obligatoire
 
+#### v0.1.3
+
+ * **```créer||ajouter un||une {navbar} +avec un||une||le||la {margin} à {30px}+&, et un||une||le||la {couleur} à {yellow}```**: permet de créer une div .navbar sur la page demandée par la suite avec un margin: 30px; et un color: yellow;
+ > comme marqué dans le cdd, le ```en pixel``` n'a pas été implémenté dans cette version.
